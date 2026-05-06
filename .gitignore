@@ -1,0 +1,13 @@
+# FIXES
+# !FIXES/fix-shell.txt
+
+*.alt
+*.bak
+
+
+*_bak
+*_alt
+
+Local/.local/bin
+!Local/.local/bin/playit
+!Local/.local/bin/wayclick
