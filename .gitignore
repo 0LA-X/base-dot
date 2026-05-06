@@ -8,6 +8,5 @@
 *_bak
 *_alt
 
-Local/.local/bin
-!Local/.local/bin/playit
+Local/.local
 !Local/.local/bin/wayclick
