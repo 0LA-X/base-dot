@@ -74,7 +74,7 @@ PACMAN_PKGS=(
 # -----------------------------------------
 AUR_PKGS=(
   # ---- Themes & Appearance ----
-  adw-gtk-theme nwg-look pokego-git
+  adw-gtk-theme nwg-look pokego-bin
   # bibata-cursor-theme-bin  papirus-icon-theme
 
   # ---- Nautilus Addons ----
