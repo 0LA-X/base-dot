@@ -2,9 +2,9 @@
 
 set -e
 
-DOT_DIR="$HOME/4.0"
+DOT_DIR="$HOME/base-dot"
 
-echo "  Starting Zsh + Plugin + Starship setup on Arch Linux..."
+echo "  Starting Zsh + Plugin setup on ..."
 
 # Check yay installation
 if ! command -v yay &> /dev/null; then
@@ -15,7 +15,7 @@ fi
 # Check and install Zsh if needed
 if ! command -v zsh &> /dev/null; then
     echo "  Zsh not found. Installing Zsh..."
-    yay -S --noconfirm zsh
+    sudo pacman -S --noconfirm zsh
 fi
 
 # Set Zsh as default shell if not already

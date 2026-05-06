@@ -2,14 +2,15 @@
 
 set -euo pipefail  # safer bash defaults
 
+
 # === CONFIGURATION ===
 PLYMOUTH_THEME_NAME="rings"
-PLYMOUTH_THEME_DIR="$HOME/4.0/Patches/plymouth-themes"
+PLYMOUTH_THEME_DIR="$HOME/base-dot/Patches/plymouth-themes"
 PLYMOUTH_THEME_ARCHIVE="$PLYMOUTH_THEME_DIR/$PLYMOUTH_THEME_NAME.tar.xz"
 PLYMOUTH_THEME_DEST="/usr/share/plymouth/themes/"
 
 GRUB_THEME_NAME="Sekiro_theme"
-GRUB_THEME_SRC="$HOME/4.0/Patches/grub-themes/$GRUB_THEME_NAME"
+GRUB_THEME_SRC="$HOME/base-dot/Patches/grub-themes/$GRUB_THEME_NAME"
 GRUB_THEME_DEST="/boot/grub/themes/$GRUB_THEME_NAME"
 
 GRUB_CFG="/etc/default/grub"
