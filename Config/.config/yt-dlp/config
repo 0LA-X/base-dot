@@ -1,0 +1,27 @@
+# Save into Videos folder
+--paths "$HOME/Videos/yt-dlp"
+
+# Use a clean output template
+--output "%(title)s.%(ext)s"
+
+# Skip already downloaded content
+--download-archive ~/.config/yt-dlp/file.txt
+
+# Format selection (strict 720p, mp4 or webm only)
+-f "bv[height=720][ext=mp4]+ba[ext=m4a]/bv[height=720][ext=webm]+ba[ext=webm]"
+--format-sort "res:720"  # Prefers closest to 720p
+
+#[ Extractor-args ]
+--extractor-args "youtube:player_client=default"
+
+# Embed metadata
+--embed-metadata
+
+# Avoid overwriting existing files
+--no-overwrites
+
+# If URL has both video & playlist, skip the playlist
+# --no-playlist
+
+# Fallback behavior (if exact 720p is unavailable)
+--merge-output-format mp4  # Prefer MP4 output

@@ -1,0 +1,82 @@
+# ================================
+# Yoruba Compose Mappings (Full)
+# Works with RightAlt (compose:ralt)
+# Author: Custom setup for Arch + Hyprland (Ola)
+# ================================
+
+##########
+# SUBDOT LETTERS
+##########
+<Multi_key> <e> <period> : "ẹ"
+<Multi_key> <E> <period> : "Ẹ"
+<Multi_key> <o> <period> : "ọ"
+<Multi_key> <O> <period> : "Ọ"
+<Multi_key> <s> <period> : "ṣ"
+<Multi_key> <S> <period> : "Ṣ"
+<Multi_key> <n> <period> : "ṇ"
+<Multi_key> <N> <period> : "Ṇ"
+
+##########
+# LOW TONE (GRAVE)
+##########
+<Multi_key> <a> <grave> : "à"
+<Multi_key> <A> <grave> : "À"
+<Multi_key> <e> <grave> : "è"
+<Multi_key> <E> <grave> : "È"
+<Multi_key> <i> <grave> : "ì"
+<Multi_key> <I> <grave> : "Ì"
+<Multi_key> <o> <grave> : "ò"
+<Multi_key> <O> <grave> : "Ò"
+<Multi_key> <u> <grave> : "ù"
+<Multi_key> <U> <grave> : "Ù"
+
+##########
+# HIGH TONE (ACUTE)
+##########
+<Multi_key> <a> <acute> : "á"
+<Multi_key> <A> <acute> : "Á"
+<Multi_key> <e> <acute> : "é"
+<Multi_key> <E> <acute> : "É"
+<Multi_key> <i> <acute> : "í"
+<Multi_key> <I> <acute> : "Í"
+<Multi_key> <o> <acute> : "ó"
+<Multi_key> <O> <acute> : "Ó"
+<Multi_key> <u> <acute> : "ú"
+<Multi_key> <U> <acute> : "Ú"
+
+##########
+# SUBDOT + LOW TONE
+##########
+<Multi_key> <e> <period> <grave> : "ẹ̀"
+<Multi_key> <E> <period> <grave> : "Ẹ̀"
+<Multi_key> <o> <period> <grave> : "ọ̀"
+<Multi_key> <O> <period> <grave> : "Ọ̀"
+<Multi_key> <s> <period> <grave> : "ṣ̀"
+<Multi_key> <S> <period> <grave> : "Ṣ̀"
+<Multi_key> <n> <period> <grave> : "ṇ̀"
+<Multi_key> <N> <period> <grave> : "Ṇ̀"
+
+##########
+# SUBDOT + HIGH TONE
+##########
+<Multi_key> <e> <period> <acute> : "ẹ́"
+<Multi_key> <E> <period> <acute> : "Ẹ́"
+<Multi_key> <o> <period> <acute> : "ọ́"
+<Multi_key> <O> <period> <acute> : "Ọ́"
+<Multi_key> <s> <period> <acute> : "ṣ́"
+<Multi_key> <S> <period> <acute> : "Ṣ́"
+<Multi_key> <n> <period> <acute> : "ṇ́"
+<Multi_key> <N> <period> <acute> : "Ṇ́"
+
+##########
+# QUICK ALIASES
+# Optional easier access with comma instead of period for dot-below
+##########
+<Multi_key> <e> <comma> : "ẹ"
+<Multi_key> <E> <comma> : "Ẹ"
+<Multi_key> <o> <comma> : "ọ"
+<Multi_key> <O> <comma> : "Ọ"
+<Multi_key> <s> <comma> : "ṣ"
+<Multi_key> <S> <comma> : "Ṣ"
+<Multi_key> <n> <comma> : "ṇ"
+<Multi_key> <N> <comma> : "Ṇ"

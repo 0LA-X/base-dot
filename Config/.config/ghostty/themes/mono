@@ -1,0 +1,43 @@
+# The basic  Colors
+foreground = #D9D9D9
+background = #262626
+
+selection-background = #262626
+selection-foreground = #A6A6A6
+
+# Cursor  palette = s
+cursor-color = #A6A6A6
+cursor-text =  #D9D9D9
+
+# The 16 terminal Colors 
+# black
+ palette = 0 = #404040
+ palette = 8 = #404040
+
+# red
+ palette = 1 = #D9D9D9
+ palette = 9 = #D9D9D9
+
+# green
+ palette = 2  = #D9D9D9
+ palette = 10 = #D9D9D9
+
+# yellow
+ palette = 3 =  #C9FFE5
+ palette = 11 = #C9FFE5
+
+# blue
+ palette = 4 = #A6A6A6
+ palette = 12 = #A6A6A6
+
+# magenta
+ palette = 5 = #A6A6A6
+ palette = 13 = #A6A6A6
+
+# cyan
+ palette = 6 = #A6A6A6
+ palette = 14 = #A6A6A6
+
+# white
+ palette = 7 = #D9D9D9
+ palette = 15 = #D9D9D9
