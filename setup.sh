@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
 
@@ -151,7 +150,7 @@ stow_dots(){
   
   echo "{ ! } Stowing dotfiles..."
   cd $DOT_DIR
-  stow -v Config Local zsh 
+  stow -v Config Local zsh --target="$HOME"
 }
 
 helper_scripts(){
