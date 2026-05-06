@@ -8,5 +8,5 @@
 *_bak
 *_alt
 
-Local/.local
+Local
 !Local/.local/bin/wayclick
