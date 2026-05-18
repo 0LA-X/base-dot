@@ -218,6 +218,51 @@ install_pkgs() {
 # -----------------------------------------
 # Dotfile Stow
 # -----------------------------------------
+
+# Back up ~/.config and remove any dirs/files that stow will try to symlink,
+# so stow never hits a "conflicts with existing target" error.
+backup_and_clear_conflicts() {
+  local backup_root="${XDG_STATE_HOME:-$HOME/.local/state}/config-backups"
+  local backup_dir="$backup_root/$(date +%Y%m%d_%H%M%S)"
+
+  log "Backing up ~/.config to $backup_dir ..."
+  mkdir -p "$backup_dir"
+  cp -a "$HOME/.config/." "$backup_dir/" \
+    || die "Failed to back up ~/.config — aborting to protect your data."
+  ok "Backup saved to $backup_dir"
+
+  # Walk every file/dir that stow would place under $HOME and remove the
+  # real counterpart so stow can create its symlink cleanly.
+  log "Removing conflicting targets in $HOME ..."
+
+  local stow_targets=(Config Local zsh)
+  for target in "${stow_targets[@]}"; do
+    local src="$DOT_DIR/$target"
+    [[ -d "$src" ]] || continue
+
+    # find all first-level entries stow would link
+    while IFS= read -r -d '' entry; do
+      local rel="${entry#"$src"/}"          # path relative to stow package root
+      local dest="$HOME/$rel"
+
+      if [[ -e "$dest" || -L "$dest" ]]; then
+        if [[ -L "$dest" ]]; then
+          log "  Removing existing symlink: $dest"
+          rm "$dest"
+        elif [[ -d "$dest" ]]; then
+          log "  Removing existing directory: $dest"
+          rm -rf "$dest"
+        else
+          log "  Removing existing file: $dest"
+          rm -f "$dest"
+        fi
+      fi
+    done < <(find "$src" -mindepth 1 -maxdepth 1 -print0)
+  done
+
+  ok "Conflicts cleared."
+}
+
 stow_dots() {
   log "Stowing dotfiles..."
 
@@ -229,12 +274,14 @@ stow_dots() {
 
   cd "$DOT_DIR" || die "Cannot cd into $DOT_DIR"
 
+  backup_and_clear_conflicts
+
   # Stow each group separately so one failure doesn't block the rest
   local stow_targets=(Config Local zsh)
   for target in "${stow_targets[@]}"; do
     if [[ -d "$DOT_DIR/$target" ]]; then
       stow -v "$target" --target="$HOME" \
-        || warn "stow failed for '$target' — may need manual linking."
+        || die "stow failed for '$target' — check $LOG_FILE for details."
     else
       warn "Stow target '$target' not found in $DOT_DIR — skipping."
     fi
@@ -242,7 +289,6 @@ stow_dots() {
 
   ok "Dotfiles stowed."
 }
-
 
 # -----------------------------------------
 # Helper Scripts
