@@ -50,6 +50,7 @@ style = 'fg:color_orange'
 Arch = '󰣇'
 OpenBSD = ''
 Linux = '󰌽'
+CachyOS= '󰌽'
 NixOS = ''
 Windows = "󰍲"
 Ubuntu = "󰕈"
