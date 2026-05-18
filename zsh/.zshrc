@@ -8,14 +8,9 @@ if [[ -o interactive ]]; then
   fi
 
   # -- ¯\_(ツ)_/¯
-  pokego --name eevee --no-title # jigglypuff - eevee - delcatty - charmeleon - [## -r 6,1,5,8,2,7 -no-title -s # 1,3,5,7]
+  pokego -r 6,1,5,8,2,7 -no-title -s
   # fastfetch
 fi
-
-# # -- Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
 
 
 #[ Completions ]
@@ -47,8 +42,6 @@ autoload -Uz _zinit
 # ============
 #   PLUGINS 
 # ============
-#[Powerlevel10k]
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # -- Starship
 zinit ice as"command" from"gh-r" \
@@ -56,13 +49,9 @@ zinit ice as"command" from"gh-r" \
   atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
-# -- ZVM/zsh-vi-mode
-# zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
-
 # -- zsh plugins
 zinit light zsh-users/zsh-completions
-zinit light zdharma-continuum/fast-syntax-highlighting - # -- Syntax-highlighting
-# zinit light zsh-users/zsh-syntax-highlighting 
+zinit light zsh-users/zsh-syntax-highlighting 
 
 # -- zsh-autosuggestions
 zinit light zsh-users/zsh-autosuggestions
@@ -88,7 +77,6 @@ zinit snippet OMZP::zoxide
 zinit snippet OMZP::colored-man-pages
 zinit snippet OMZP::command-not-found
 
-
 # -- Load 
 zinit cdreplay -q
 
@@ -98,13 +86,14 @@ for map in emacs viins vicmd; do
   bindkey -M $map '^[[4~' end-of-line         # End
   bindkey -M $map '^[[3~' delete-char         # Delete
 
+  bindkey -M $map '^[[5~' up-line-or-history
+  bindkey -M $map '^[[6~' down-line-or-history
+  
+  bindkey -M $map '^[[Z' reverse-menu-complete
+
   bindkey -M $map '^H' backward-kill-word 
   bindkey -M $map '^Z' undo
 done
-
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
 #============
@@ -129,9 +118,8 @@ setopt HIST_FIND_NO_DUPS
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-
 #[Shell integration]
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 
 #==============
@@ -185,15 +173,7 @@ alias exit-user='pkill -TERM -u $USER'
 alias logout-user='pkill Hyprland || pkill tmux || loginctl terminate-user $USER'
 
 
-#==========
-#  MISC
-#==========
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+#[ MISC ] 
 
-# Compilation flags
+# -- Compilation flags
 export ARCHFLAGS="-arch $(uname -m)"
